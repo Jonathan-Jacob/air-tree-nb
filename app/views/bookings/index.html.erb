@@ -1,11 +1,11 @@
 <div class="container">
   <% @bookings.each do |booking| %>
-    <%= booking.treehouse.name %>
+   <h3>You booked <%= booking.treehouse.name %>
     <br>
-    <%= booking.start_date %>
+    From <%= booking.start_date %> To <%= booking.end_date %>
     <br>
-    <%= booking.end_date %>
+    Total Price for  <%= (booking.end_date - booking.start_date).to_i %> Nights <%= (booking.end_date - booking.start_date).to_i * booking.treehouse.price_per_day %> Euros
     <br>
-    <%= (booking.end_date - booking.start_date) %>
+    </h3>
   <% end %>
 </div>
