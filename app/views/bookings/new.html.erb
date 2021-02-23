@@ -2,11 +2,13 @@
   <h1>
     Book <%= @treehouse.name %>
   </h1>
-  <% simple_form_for([@treehouse, @booking]) do |f| -%>
+  <%= simple_form_for([@treehouse, @booking]) do |f| %>
   <%= f.input :start_date, label: "Day of Arrival", as: :date %>
   <br>
   <%= f.input :end_date, label: "Day of Departure", as: :date %>
   <br>
-  <%= f.submit class: "btn btn-secondary rounded"%>
-  <% end -%>
+  <%= f.submit class: "btn btn-danger rounded"%>
+  <% end %>
 </div>
+
+
