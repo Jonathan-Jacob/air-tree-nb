@@ -1,3 +1,36 @@
+.card-treehouse{
+  @extend .card;
+  margin: 16px 0;
+  border-radius: 8px;
+  border: solid 1px rgba(255,255,255,0.5);
+  img {
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+  }
+  .card-treehouse-overlay:hover {
+    background-color: rgba(255,255,255,0.5);
+    h4 {
+      color: rgba(0,0,0,1);
+    }
+  }
+}
+​
+.card-treehouse-overlay {
+  @extend .card-img-overlay;
+  display: flex;
+  color: white;
+  align-items: flex-center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+  h4 {
+    margin: 0;
+    font-size: clamp(8px, 5vw, 24px);
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+}
 .container-treehouse {
   @extend .container;
   margin: 16px auto;
@@ -11,3 +44,4 @@
   padding: 0 8px;
   max-width: 1140px;
 }
+
