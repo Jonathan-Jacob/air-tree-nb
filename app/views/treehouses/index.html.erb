@@ -1,16 +1,19 @@
 <div class="container">
   <h1 class="text-center">Treehouses</h1>
+  <h3 class="text-center"><%= link_to 'add treehouse', new_treehouse_path %></h3>
   <div class="row">
     <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="card-treehouse">
-          <%= image_tag(treehouse.photo)%>
-          <div class="card-treehouse-overlay">
-            <div class="text-center w-100 h-100 d-flex justify-content-center align-items-end" >
-              <h4 style="text-shadow: black 0px 0px 8px" ><%= treehouse.name %></h4>
+        <%= link_to treehouse_path(treehouse) do %>
+          <div class="card-treehouse">
+            <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+            <div class="card-treehouse-overlay">
+              <div class="text-center w-100 h-100 d-flex justify-content-center align-items-end" >
+                <h4 style="text-shadow: black 0px 0px 8px" ><%= treehouse.name %></h4>        
+              </div>
             </div>
-          </div>
-        </div>
+          </div>        
+        <% end %>
       </div>
     <% end %>
   </div>
