@@ -1,0 +1,13 @@
+.container-treehouse {
+  @extend .container;
+  margin: 16px auto;
+  padding: 0 8px;
+  max-width: 720px;
+}
+​
+.container-treehouses {
+  @extend .container;
+  margin: 16px auto;
+  padding: 0 8px;
+  max-width: 1140px;
+}

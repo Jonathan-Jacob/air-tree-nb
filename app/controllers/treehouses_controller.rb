@@ -1,13 +1,11 @@
 class TreehousesController < ApplicationController
-
   def show
-     @treehouse = Treehouse.find(params[:id])
+    @treehouse = Treehouse.find(params[:id])
   end
-
 end
 
-private
+# private
 
-def treehouse_params
-  params.require(:treehouse).permit(:user, :booking)
-end
+# def treehouse_params
+#   params.require(:treehouse).permit(:user, :booking)
+# end
