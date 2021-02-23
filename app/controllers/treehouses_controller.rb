@@ -11,8 +11,5 @@ class TreehousesController < ApplicationController
 #   params.require(:treehouse).permit(:user, :booking)
 # end
 
-  def index
-    @treehouses = policy_scope(Treehouse)
-  end
 
 end
