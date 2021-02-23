@@ -1,9 +1,10 @@
 <div class="container">
   <h1 class="text-center">Treehouses</h1>
+  <h3 class="text-center"><%= link_to 'add treehouse', new_treehouse_path %></h3>
   <div class="row">
     <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
       <div class="col-6 col-sm-4 col-md-3">
-        <%= link_to cocktail_path(cocktail) do %>
+        <%# <%= link_to treehouse_path(treehouse) do %>
           <div class="card-treehouse">
             <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
             <div class="card-treehouse-overlay">
@@ -12,7 +13,7 @@
               </div>
             </div>
           </div>        
-        <% end %>
+        <%# <% end %>
       </div>
     <% end %>
   </div>
