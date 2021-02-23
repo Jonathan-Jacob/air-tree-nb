@@ -1,12 +1,14 @@
 <div class="container">
-  <%= link_to root_path do %>
+  <%= link_to treehouses_path do %>
     <button class="btn btn-danger text-white">Back to all treehouses</button>
   <% end %>
   <div class="row justify-content-center">
   <h1><%= @treehouse.name %></h1>
   </div>
   <div class="row justify-content-center">
-  <%= image_tag(@treehouse.photo) %>
+    <div class="card-treehouse" style="width: min(calc(100vw - 30px), max(calc(461px + 10vw), 28vw))">
+      <%= cl_image_tag @treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+    </div>
   </div>
 
 
@@ -19,8 +21,8 @@
           <thead>
             <th>Name</th>
             <th>Description</th>
-            <th>Price per Day</th>
-            <th>Cancel Days</th>
+            <th>Price per day</th>
+            <th>Cancellation period in days</th>
           </thead>
             <tr>
               <td><%= @treehouse.name %></td>

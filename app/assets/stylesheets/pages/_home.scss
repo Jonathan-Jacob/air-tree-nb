@@ -5,6 +5,10 @@ body {
   background-attachment: fixed;
 }
 
+body.js-stop-transition * {
+  transition:none !important;
+}
+
 .container {
 
 }
