@@ -3,7 +3,7 @@
   <div class="row">
     <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
       <div class="col-6 col-sm-4 col-md-3">
-        <div class="card-treehouse ratio ratio-16x9">
+        <div class="card-treehouse">
           <%= image_tag(treehouse.photo) %>
           <div class="card-treehouse-overlay">
             <div class="text-center w-100 h-100 d-flex justify-content-center align-items-end" >
