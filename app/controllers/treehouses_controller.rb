@@ -15,7 +15,7 @@ class TreehousesController < ApplicationController
     authorize @treehouse
     @treehouse.user = current_user
     if @treehouse.save
-      redirect_to treehouses_path
+      redirect_to treehouse_path(@treehouse)
     else
       render :new
     end
