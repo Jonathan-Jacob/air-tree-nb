@@ -4,7 +4,7 @@
   <div class="row">
     <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
       <div class="col-6 col-sm-4 col-md-3">
-        <%# <%= link_to treehouse_path(treehouse) do %>
+        <%= link_to treehouse_path(treehouse) do %>
           <div class="card-treehouse">
             <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
             <div class="card-treehouse-overlay">
@@ -13,7 +13,7 @@
               </div>
             </div>
           </div>        
-        <%# <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>

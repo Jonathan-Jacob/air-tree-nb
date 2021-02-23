@@ -6,8 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
-
 Treehouse.destroy_all
+
+
+
+
 
 names = ['Squirrel castle', 'Owl hole', 'Oak mansion', 'Wood manor']
 descriptions = ['Cozy little treehouse', 'Nice forest apartment', 'Luxurious tree penthouse', 'Lavish forest experience']

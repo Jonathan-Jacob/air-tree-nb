@@ -4,7 +4,12 @@ class TreehousesController < ApplicationController
   def index
     @treehouses = policy_scope(Treehouse).order(created_at: :desc)
   end
-
+  
+  def show
+    @treehouse = Treehouse.find(params[:id])
+    authorize @treehouse
+  end
+  
   def new
     @treehouse = Treehouse.new
     authorize @treehouse

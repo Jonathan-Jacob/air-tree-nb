@@ -1,0 +1,43 @@
+<div class="container">
+  <%= link_to root_path do %>
+    <button class="btn btn-danger text-white">Back to all treehouses</button>
+  <% end %>
+  <div class="row justify-content-center">
+  <h1><%= @treehouse.name %></h1>
+  </div>
+  <div class="row justify-content-center">
+  <%= image_tag(@treehouse.photo) %>
+  </div>
+
+
+
+
+  <div class="row justify-content-center">
+  </div>
+       <table class="table table-striped table-dark table-hover">
+        <tbody>
+          <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price per Day</th>
+            <th>Cancel Days</th>
+          </thead>
+            <tr>
+              <td><%= @treehouse.name %></td>
+              <td><%= @treehouse.description %></td>
+              <td><%= @treehouse.price_per_day %></td>
+              <td><%= @treehouse.cancel_days %></td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="row justify-content-center" id="button-treehouse">
+    <%= link_to root_path do %>
+    <button class="btn btn-danger text-white">Book treehouse</button>
+  <% end %>
+  </div>
+</div>
+
+
+
