@@ -1,13 +1,20 @@
 <div class="container">
+  <%= link_to root_path do %>
+    <button class="btn btn-danger text-white">Back to all treehouses</button>
+  <% end %>
+  <div class="row justify-content-center">
   <h1><%= @treehouse.name %></h1>
-  <br>
-    <%= cl_image_tag @treehouse.photo, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div class="row justify-content-center">
+  <%= image_tag(@treehouse.photo) %>
+  </div>
 
-    <%= link_to "Back to all treehouses", root_path %>
 
-  <div class="row">
-      <div class="col-6 col-sm-4 col-md-3">
-       <table class="table table-bordered">
+
+
+  <div class="row justify-content-center">
+  </div>
+       <table class="table table-striped table-dark table-hover">
         <tbody>
           <thead>
             <th>Name</th>
@@ -15,36 +22,22 @@
             <th>Price per Day</th>
             <th>Cancel Days</th>
           </thead>
-          <% @treehouse.each do |treehouse| %>
             <tr>
-              <td><%= treehouse.name %></td>
-              <td><%= treehouse.description %></td>
-              <td><%= treehouse.price_per_day %></td>
-              <td><%= treehouse.cancel_days %></td>
+              <td><%= @treehouse.name %></td>
+              <td><%= @treehouse.description %></td>
+              <td><%= @treehouse.price_per_day %></td>
+              <td><%= @treehouse.cancel_days %></td>
             </tr>
-          <% end %>
         </tbody>
       </table>
+  </div>
 
-
-    <!--   <h3>Reviews</h3>
-        <% if @treehouse.reviews.empty? %>
-          <p>Be the first to let a review</p>
-        <% else %>
-          <ul class="list-group">
-            <% @treehouse.reviews.each do |review| %>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span class="badge badge-primary badge-pill">
-                  <% counter = 0 %>
-                  <% 5.times do %>
-                    <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                    <% counter += 1 %>
-                  <% end %>
-                </span>
-                <%= review.content %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %> -->
+  <div class="row justify-content-center" id="button-treehouse">
+    <%= link_to root_path do %>
+    <button class="btn btn-danger text-white">Book treehouse</button>
+  <% end %>
   </div>
 </div>
+
+
+
