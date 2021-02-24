@@ -1,16 +1,22 @@
 class BookingsController < ApplicationController
   before_action :set_treehouse, only: [:new, :create]
 
+  def index
+    @bookings = policy_scope(Booking)
+  end
+
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.user = current_user
     @booking.treehouse = @treehouse
-    if booking.save
-      redirect_to treehouses_path
+    if @booking.save
+      redirect_to bookings_path
     else
       render 'new'
     end
