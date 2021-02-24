@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body class="js-stop-transition">
     <%= render 'shared/navbar' %>
 
     <p class="notice"><%= notice %></p>
@@ -20,5 +20,6 @@
     <%= yield %>
 
     <%= render 'shared/flashes' %>
+    <script>document.body.classList.remove('js-stop-transition')</script>
   </body>
 </html>
