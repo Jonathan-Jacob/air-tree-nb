@@ -9,9 +9,9 @@
           <div class="all-cards">
             <ul class="unordered-list">
               <% @bookings.each do |booking| %>
-                <li class="card">
+                <li class="card-booking">
                     <div class="img-size">
-                      <div class="card-img">
+                      <div class="card-img-booking">
                         <a href="#"></a>
                         <picture>
                           <%= cl_image_tag booking.treehouse.photo.key, crop: :fill %>
