@@ -1,0 +1,95 @@
+.card-box {
+  margin: 20px;
+}
+
+.all-cards {
+display: flex;
+
+}
+
+.unordered-list {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: -5px;
+  padding: 0px;
+  display: flex;
+}
+
+.card-booking {
+  @extend .card;
+  height: 360px;
+  width: 300px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: rgba(0, 0, 0, 0.801);
+  position: relative;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+// .whole-card {
+//  display: flex;
+//  flex-direction: column;
+//  margin: 2px;
+// }
+
+.img-size {
+  height: 180px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.card-img-booking {
+  @extend .card-img;
+  display: inline-block;
+  vertical-align: bottom;
+  // min-height: 1px;
+  img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 180px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.date-and-destination {
+ display: flex;
+ justify-content: space-around;
+ p {
+   color: grayscale($color: #646464);
+ }
+ h3, h4 {
+   font-size: 16px;
+ }
+}
+
+.traveldate {
+  text-align: left;
+}
+
+.traveldestination {
+  text-align: left;
+  font-size: 16px;
+}
+
+.travelprice {
+  font-size: 16px;
+  text-align: right;
+
+}
+
+.treehouse-name {
+  text-align: center;
+}
+
