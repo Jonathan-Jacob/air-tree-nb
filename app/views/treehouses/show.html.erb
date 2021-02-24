@@ -6,40 +6,40 @@
   <h1><%= @treehouse.name %></h1>
   </div>
   <div class="row justify-content-center">
-    <div class="card-treehouse" style="width: min(calc(100vw - 30px), max(calc(461px + 10vw), 28vw))">
+    <div class="card-treehouse" style="width: min(calc(100vw
+     30px), max(calc(461px + 10vw), 28vw))">
       <%= cl_image_tag @treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
     </div>
   </div>
-
-
-
-
-  <div class="row justify-content-center">
+  <div class=" row justify-content-center">
+    <div class="info-field col-md-2">
+      <h6 class="text-center">Name:
+        <br>
+        <%=@treehouse.name%></h6>
+    </div>
+    <div class="info-field col-md-2">
+      <h6 class="text-center">Description:
+        <br>
+        <%=@treehouse.description%></h6>
+    </div>
+    <div class="info-field col-md-2">
+      <h6 class="text-center">Price Per day:
+        <br>
+        <%=@treehouse.price_per_day%> </h6>
+    </div>
+    <div class="info-field col-md-2">
+      <h6 class="text-center">Cancellation Period in days:
+        <br>
+        <%=@treehouse.cancel_days%></h6>
+    </div>
   </div>
-       <table class="table table-striped table-dark table-hover">
-        <tbody>
-          <thead>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price per day</th>
-            <th>Cancellation period in days</th>
-          </thead>
-            <tr>
-              <td><%= @treehouse.name %></td>
-              <td><%= @treehouse.description %></td>
-              <td><%= @treehouse.price_per_day %></td>
-              <td><%= @treehouse.cancel_days %></td>
-            </tr>
-        </tbody>
-      </table>
-  </div>
-
-  <div class="row justify-content-center" id="button-treehouse">
+  <div class="row justify-content-center mt-5">
     <%= link_to new_treehouse_booking_path(@treehouse) do %>
     <button class="btn btn-danger text-white">Book treehouse</button>
-  <% end %>
+    <% end %>
   </div>
 </div>
+
 
 
 
