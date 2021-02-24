@@ -1,7 +1,7 @@
 <div class="container-xl">
   <h1 class="text-center">Treehouses</h1>
   <div class="text-center"><%= link_to new_treehouse_path do %>
-    <button class="btn btn-danger text-white">Book treehouse</button>
+    <button class="btn btn-danger text-white">Offer treehouse</button>
     <% end %>
   </div>
   <div class="row">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="col-12 col-md-6">
-      <div id="map"
+      <div class = "" id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
