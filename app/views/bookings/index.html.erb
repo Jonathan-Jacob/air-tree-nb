@@ -1,11 +1,51 @@
-<div class="container">
-  <% @bookings.each do |booking| %>
-   <h3>You booked <%= booking.treehouse.name %>
-    <br>
-    From <%= booking.start_date %> To <%= booking.end_date %>
-    <br>
-    Total Price for  <%= (booking.end_date - booking.start_date).to_i %> Nights <%= (booking.end_date - booking.start_date).to_i * booking.treehouse.price_per_day %> Euros
-    <br>
-    </h3>
-  <% end %>
+<div id="site-content">
+  <div class="card-box">
+    <section>
+      <div class="header">
+        <h1>Your Bookings</h1>
+      </div>
+      <div>
+        <section>
+          <div class="all-cards">
+            <ul class="unordered-list">
+              <% @bookings.each do |booking| %>
+                <li class="card">
+                    <div class="img-size">
+                      <div class="card-img">
+                        <a href="#"></a>
+                        <picture>
+                          <%= cl_image_tag booking.treehouse.photo.key, crop: :fill %>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="card-content">
+                      <div class="date-and-destination">
+                        <div class="traveldate">
+
+                          <p><%= booking.start_date.strftime("%d/%b/%Y") %> - <%= booking.end_date.strftime("%d/%b/%Y") %></p>
+                          <h3>Berlin</h3>
+                        </div>
+
+                        <div class="travelprice">
+                          <h3>Price</h3>
+                          <h4><%= (booking.end_date - booking.start_date).to_i * booking.treehouse.price_per_day %> Euros</h4>
+                          <h4>for <%= (booking.end_date - booking.start_date).to_i %> Nights </h4>
+                        </div>
+                      </div>
+                      <div class="traveldescription">
+                        <div class="miniature-img">
+                        </div>
+                        <div class="treehouse-name">
+                          <h3><%= booking.treehouse.name %></h3>
+                        </div>
+                      </div>
+                    </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
 </div>
