@@ -7,6 +7,24 @@
   <br>
   <%= f.input :end_date, label: "Day of Departure", as: :string, input_html: {class: "datepicker", id: "range_end"} %>
   <br>
+  <div>
+    <p class="d-inline">
+      Price per Night:
+    </p>
+    <p class="d-inline" id="price">
+      <%= @treehouse.price_per_day %>
+    </p>
+  </div>
+  <br>
+  <div>
+    <p class="d-inline">
+      Total Price for your Stay:
+    </p>
+    <p class="d-inline" id="total-price">
+      0
+    </p>
+  </div>
+  <br>
   <%= f.submit class: "btn btn-danger rounded"%>
   <% end %>
 </div>
