@@ -3,13 +3,20 @@ class TreehousesController < ApplicationController
 
   def index
     @treehouses = policy_scope(Treehouse).order(created_at: :desc)
+    @markers = @treehouses.geocoded.map do |treehouse|
+      {
+        lat: treehouse.latitude,
+        lng: treehouse.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { treehouse: treehouse })
+      }
+    end
   end
-  
+
   def show
     @treehouse = Treehouse.find(params[:id])
     authorize @treehouse
   end
-  
+
   def new
     @treehouse = Treehouse.new
     authorize @treehouse
@@ -29,6 +36,6 @@ class TreehousesController < ApplicationController
   private
 
   def treehouse_params
-    params.require(:treehouse).permit(:name, :description, :price_per_day, :cancel_days, :photo)
+    params.require(:treehouse).permit(:name, :description, :price_per_day, :cancel_days, :photo, :address, :latitude, :longitude)
   end
 end
