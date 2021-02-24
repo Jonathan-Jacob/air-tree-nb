@@ -31,12 +31,14 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initFlatpickr } from "../plugins/flatpickr";
 
-
+import { initCalculateBookingPrice } from "../components/booking_price";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
+
+  initCalculateBookingPrice();
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
