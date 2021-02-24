@@ -1,20 +1,33 @@
 <div class="container-xl">
   <h1 class="text-center">Treehouses</h1>
-  <h3 class="text-center"><%= link_to 'add treehouse', new_treehouse_path %></h3>
+  <div class="text-center"><%= link_to new_treehouse_path do %>
+    <button class="btn btn-danger text-white">Book treehouse</button>
+    <% end %>
+  </div>
   <div class="row">
-    <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
-      <div class="col-6 col-sm-4 col-md-3">
-        <%= link_to treehouse_path(treehouse) do %>
-          <div class="card-treehouse">
-            <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
-            <div class="card-treehouse-overlay">
-              <div class="text-center w-100 h-100 d-flex justify-content-center align-items-end" >
-                <h4 style="text-shadow: black 0px 0px 8px" ><%= treehouse.name %></h4>        
-              </div>
-            </div>
-          </div>        
+    <div class="col-12 col-md-6">
+      <div class="row">
+        <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
+          <div class="col-6 col-sm-4 col-md-6">
+            <%= link_to treehouse_path(treehouse) do %>
+              <div class="card-treehouse">
+                <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+                <div class="card-treehouse-overlay">
+                  <div class="text-center w-100 h-100 d-flex justify-content-center align-items-end" >
+                    <h4 style="text-shadow: black 0px 0px 8px" ><%= treehouse.name %></h4>        
+                  </div>
+                </div>
+              </div>        
+            <% end %>
+          </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="col-12 col-md-6">
+      <div id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
 </div>

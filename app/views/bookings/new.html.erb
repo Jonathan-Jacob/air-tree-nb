@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-treehouse">
   <h1>
     Book <%= @treehouse.name %>
   </h1>
   <%= simple_form_for([@treehouse, @booking]) do |f| %>
-  <%= f.input :start_date, label: "Day of Arrival", as: :date %>
+  <%= f.input :start_date, label: "Day of Arrival", as: :string, input_html: {class: "datepicker", id: "range_start"} %>
   <br>
-  <%= f.input :end_date, label: "Day of Departure", as: :date %>
+  <%= f.input :end_date, label: "Day of Departure", as: :string, input_html: {class: "datepicker", id: "range_end"} %>
   <br>
   <%= f.submit class: "btn btn-danger rounded"%>
   <% end %>
