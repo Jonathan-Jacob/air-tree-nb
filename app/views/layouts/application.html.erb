@@ -14,11 +14,14 @@
   </head>
 
   <body class="js-stop-transition">
-    <%= render 'shared/navbar' %>
+    <div class="page-container">
+      <div class="navbar-container"><%= render 'shared/navbar' %></div>
 
-    <%= yield %>
+      <div class="content-container"><%= yield %></div>
 
-    <%= render 'shared/flashes' %>
-    <script>document.body.classList.remove('js-stop-transition')</script>
+      <%= render 'shared/flashes' %>
+      <div class="footer-container"><%= render 'shared/footer'%></div>
+      <script>document.body.classList.remove('js-stop-transition')</script>
+    </div>
   </body>
 </html>
