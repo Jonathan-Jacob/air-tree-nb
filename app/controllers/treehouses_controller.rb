@@ -47,7 +47,7 @@ class TreehousesController < ApplicationController
   private
 
   def treehouse_params
-    params.require(:treehouse).permit(:name, :description, :price_per_day, :cancel_days, :photo, :address, :latitude, :longitude)
+    params.require(:treehouse).permit(:name, :description, :price_per_day, :cancel_days, :photo, :address, :latitude, :longitude, :capacity)
   end
 
   def query_params

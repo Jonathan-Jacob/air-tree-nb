@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :treehouse
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validates :guests, presence: true
 
   validate :end_date_after_start_date?
 
