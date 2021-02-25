@@ -13,8 +13,8 @@
     <% elsif @treehouse.errors.messages[:latitude].any? %>
       <p class="mt-0 text-danger" style="font-size: small"><%= @treehouse.errors.messages[:latitude].first %></p>
     <% end %>
-    <label class="btn btn-danger my-0 ml-0 mr-2">Upload image<input type="file" style="display: none;" name="treehouse[photo]" id="treehouse_photo"></label>
-    <%= f.submit 'Add treehouse', class: "btn btn-danger" %>
+    <label class="btn btn-success my-0 ml-0 mr-2">Upload image<input type="file" style="display: none;" name="treehouse[photo]" id="treehouse_photo"></label>
+    <%= f.submit 'Add treehouse', class: "btn btn-success" %>
   <% end %>
   <% if @treehouse.errors.messages[:photo].any? %>
     <p class="mt-1 text-danger" style="font-size: small"><%= @treehouse.errors.messages[:photo].first %></p>
