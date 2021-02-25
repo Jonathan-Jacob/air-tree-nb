@@ -12,6 +12,16 @@ class TreehousesController < ApplicationController
     end
   end
 
+  def my_treehouses
+    @treehouses = Treehouse.where(user_id: current_user)
+    authorize @treehouses
+  end
+
+  def my_treehouses_show
+    @treehouse = Treehouse.find(params[:id])
+    authorize @treehouse
+  end
+
   def show
     @treehouse = Treehouse.find(params[:id])
     authorize @treehouse
