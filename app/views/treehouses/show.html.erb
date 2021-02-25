@@ -11,7 +11,7 @@
         <p>The price is only at <strong>$<%=@treehouse.price_per_day%></strong> per day!</p>
         <p>You can cancel without problems until <strong> <%=@treehouse.cancel_days%></strong> days before your trip!</p>
       </div>
-      <% if @treehouse.user.present? %>
+      <% if @treehouse.user.photo.present? %>
            <%= cl_image_tag @treehouse.user.photo.key, class: "show-card-user avatar-bordered" %>
       <% else %>
           <%= image_tag "https://blog.ratioform.de/wp-content/uploads/2017/04/der-weg-vom-baum-zum-papier.jpg", class: "show-card-user avatar-bordered" %>

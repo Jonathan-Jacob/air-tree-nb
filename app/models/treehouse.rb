@@ -1,6 +1,6 @@
 class Treehouse < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_one_attached :photo
   before_validation :geocode, if: :address_changed?
   validates :name, presence: true
