@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :treehouses do
     resources :bookings, only: [:new, :create, :update]
   end
-  resources :bookings, only: :index
+  resources :bookings, only: [:index, :show]
 
   get "/mytreehouses", to: 'treehouses#my_treehouses'
   get "/mytreehouses/:id", to: 'treehouses#my_treehouses_show', as: :mytreehouse

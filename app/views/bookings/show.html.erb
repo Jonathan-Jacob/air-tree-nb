@@ -1,0 +1,43 @@
+<div class="container-confirmation" style= "padding: 20px;">
+  <h1 class="text-align-center">booking-request nr.: <%= @booking.id %></h1>
+  <p>from <%= @booking.start_date.strftime("%d. %b %Y") %> - <%= @booking.end_date.strftime("%d.%b %Y") %></p>
+  <div class="card-confirmation">
+    <div class="uppercard">
+      <div class="leimage">
+       <%= cl_image_tag @booking.treehouse.photo.key, crop: :fill %>
+      </div>
+   </div>
+    <div class="lowercard">
+      <div class="dateprice">
+        <div class="traveldate">
+          <p><%= @booking.start_date.strftime("%d. %b %Y") %> - <%= @booking.end_date.strftime("%d. %b %Y") %></p>
+        </div>
+        <div class="pricetag">
+          <h3>Price</h3>
+        </div>
+      </div>
+      <div class="destinationprice">
+        <div class="destination">
+          <h3>Berlin</h3>
+        </div>
+        <div class="travelprice">
+          <h4><%= (@booking.end_date - @booking.start_date).to_i * @booking.treehouse.price_per_day %> Euros</h4>
+          <h4><%= (@booking.end_date - @booking.start_date).to_i %> Nights </h4>
+        </div>
+      </div>
+      <div class="traveldescriptionstatus">
+        <div class="traveldescription">
+          <div class="miniature-img">
+            <%= cl_image_tag @booking.treehouse.photo.key, crop: :fill %>
+          </div>
+          <div class="treehouse-name">
+            <h3><%= @booking.treehouse.name %></h3>
+          </div>
+        </div>
+        <div class="booking-status">
+          <h3>Pending</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
