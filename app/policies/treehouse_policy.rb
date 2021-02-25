@@ -16,7 +16,16 @@ class TreehousePolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def show?
+    true
+  end
+
+  def my_treehouses?
+    true
+  end
+
+  def my_treehouses_show?
     true
   end
 end

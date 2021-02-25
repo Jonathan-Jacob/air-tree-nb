@@ -11,4 +11,11 @@ class Treehouse < ApplicationRecord
   validates :address, presence: { message: 'Address can\'t be blank' }
   validates :latitude, presence: { message: 'Invalid address' }
   geocoded_by :address
+
+  include PgSearch::Model
+  pg_search_scope :search_treehouse,
+                  against: :name,
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
 end

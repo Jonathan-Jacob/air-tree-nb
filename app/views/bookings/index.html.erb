@@ -2,7 +2,7 @@
   <div class="card-box">
     <section>
       <div class="header">
-        <h1>Your Bookings</h1>
+        <h1>Your <%= "Booking".pluralize(@bookings.count) %></h1>
       </div>
       <div>
         <section>
@@ -23,6 +23,11 @@
                         <div class="traveldate">
 
                           <p><%= booking.start_date.strftime("%d/%b/%Y") %> - <%= booking.end_date.strftime("%d/%b/%Y") %></p>
+                          <% if booking.status %>
+                             <h3 class="text-success">Confirmed</h3>
+                          <% else %>
+                             <h3 class="text-danger">Pending</h3>
+                          <% end %>
                           <h3>Berlin</h3>
                         </div>
 

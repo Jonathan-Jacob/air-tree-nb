@@ -1,0 +1,74 @@
+.container-confirmation {
+  @extend .container;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-confirmation {
+  @extend .card;
+  text-align: center;
+  height: 50%;
+  width: 50%;
+  border-radius: 15px;
+}
+
+.uppercard {
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+  }
+
+}
+
+.lowercard {
+  padding: 10px;
+  .dateprice {
+    border-bottom: solid rgba($color: hsl(0, 0%, 0%), $alpha: 0.15);
+    display: flex;
+    justify-content: space-between;
+
+  }
+  .traveldate{
+    padding-top: 5px;
+
+  }
+  .destinationprice{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid rgba($color: hsl(0, 0%, 0%), $alpha: 0.15);
+  }
+  .destination{
+    display: flex;
+    align-items: center;
+  }
+  .traveldescription {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .treehouse-name {
+    padding-left: 10px;
+  }
+  .traveldescriptionstatus {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.miniature-img {
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+  }
+}
+.booking-status{
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}

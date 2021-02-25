@@ -16,10 +16,24 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.treehouse = @treehouse
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path(@booking)
     else
       render 'new'
     end
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = !@booking.status
+    @booking.save
+    @treehouse = @booking.treehouse
+    authorize @booking
+    redirect_to mytreehouse_path(@treehouse)
+  end
+  
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private
