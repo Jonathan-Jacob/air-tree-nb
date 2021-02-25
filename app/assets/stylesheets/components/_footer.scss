@@ -1,15 +1,19 @@
 .page-container {
-  display: grid;
+  position: relative;
   min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
 }
-
+.content-container {
+  padding-bottom: 50px;
+}
 .footer {
   background: #F4F4F4;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding: 0px 50px;
   color: rgba(0,0,0,0.5);
   a {
