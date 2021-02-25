@@ -11,4 +11,6 @@ class Treehouse < ApplicationRecord
   validates :address, presence: { message: 'Address can\'t be blank' }
   validates :latitude, presence: { message: 'Invalid address' }
   geocoded_by :address
+  validates :capacity, presence: true
+
 end

@@ -6,6 +6,7 @@
     <%= f.input :price_per_day, label: "Price per day in €", as: :integer %>
     <%= f.input :cancel_days, label: "Cancellation period in days", as: :integer %>
     <%= f.input :address, label: "Address" %>
+    <%= f.input :capacity, label: "Capacity", as: :integer %>
     <% if @treehouse.errors.messages[:address].any? && @treehouse.errors.messages[:latitude].any? %>
       <p class="mt-0 text-danger" style="font-size: small"><%= @treehouse.errors.messages[:address].first %> and <%= @treehouse.errors.messages[:latitude].first %></p>
     <% elsif @treehouse.errors.messages[:address].any? %>
