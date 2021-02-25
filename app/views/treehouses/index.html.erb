@@ -1,7 +1,13 @@
 <div class="container-xl">
   <h1 class="text-center my-2">Treehouses</h1>
-  <div class="text-center"><%= link_to new_treehouse_path do %>
-    <button class="btn btn-danger text-white">Offer treehouse</button>
+  <div class="d-flex justify-content-between">
+    <div class="text-center"><%= link_to new_treehouse_path do %>
+      <button class="btn btn-danger text-white">Offer treehouse</button>
+      <% end %>
+    </div>
+    <%= simple_form_for :query, url: treehouses_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :name, input_html: {value: ""} %>   
+      <%= f.submit "Search", class: "btn btn-danger" %>
     <% end %>
   </div>
   <div class="row">

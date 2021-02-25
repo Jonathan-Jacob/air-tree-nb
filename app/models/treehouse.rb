@@ -13,4 +13,10 @@ class Treehouse < ApplicationRecord
   geocoded_by :address
   validates :capacity, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :search_treehouse,
+                  against: :name,
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
 end

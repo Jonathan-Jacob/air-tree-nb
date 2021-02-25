@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_150423) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "guests"
+    t.boolean "status", default: false
     t.index ["treehouse_id"], name: "index_bookings_on_treehouse_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

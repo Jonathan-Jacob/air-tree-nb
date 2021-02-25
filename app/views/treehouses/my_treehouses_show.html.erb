@@ -1,0 +1,27 @@
+<div class="container">
+  <h1> <%= @treehouse.name %> </h1>
+  <br>
+  <% @treehouse.bookings.all.each do |booking| %>
+
+
+
+  <p>Booked form <%= booking.start_date.strftime("%d.%b %Y") %> to <%= booking.end_date.strftime("%d.%b %Y") %> by <%= booking.user.email %> </p>
+ <div class="d-flex"></div>
+  <% if booking.status %>
+     <h3 class="text-success">Confirmed</h3>
+  <% else %>
+     <h3 class="text-danger">Pending</h3>
+  <% end %>
+  <% if booking.status %>
+     <%= link_to "Booking confirmed", treehouse_booking_path(@treehouse, booking),
+      method: :patch, class: "btn btn-success disabled confirmation"%>
+  <% else %>
+     <%= link_to "Accept Booking", treehouse_booking_path(@treehouse, booking),
+      method: :patch, class: "btn btn-danger confirmation"%>
+  <% end %>
+
+    <br>
+    <br>
+
+  <% end %>
+  </div>
