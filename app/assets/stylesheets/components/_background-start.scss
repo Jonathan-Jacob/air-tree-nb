@@ -1,18 +1,6 @@
-.navbar-lewagon {
-  justify-content: space-between;
+.background-start {
   background-image: url("https://i.picsum.photos/id/424/2048/1536.jpg?hmac=fGHKd0RIzyexEluCiUoUKbWIdoy3wABPUC6GWlvgyaI");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  position: sticky;
-  top: 0;
-  z-index: 2000;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
 }
