@@ -34,6 +34,8 @@ import { initFlatpickr } from "../plugins/flatpickr";
 import { initCalculateBookingPrice } from "../components/booking_price";
 
 import { initAnchor } from "../components/anchor";
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -42,9 +44,6 @@ document.addEventListener('turbolinks:load', () => {
 
   initCalculateBookingPrice();
 
-
-  // Call your functions here, e.g:
-  // initSelect2();
   initMapbox();
 
   initAnchor();

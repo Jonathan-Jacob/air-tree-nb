@@ -1,0 +1,19 @@
+<h1>My <%= "Treehouse".pluralize(@treehouses.count) %></h1>
+<div class="container">
+  <div class="row">
+    <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
+      <div class="col-6 col-sm-4 col-md-6">
+        <%= link_to mytreehouse_path(treehouse) do %>
+          <div class="card-treehouse">
+            <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+            <div class="card-treehouse-overlay">
+              <div class="text-center w-100 h-100 d-flex justify-content-center align-items-end" >
+                <h4 style="text-shadow: black 0px 0px 8px" ><%= treehouse.name %></h4>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

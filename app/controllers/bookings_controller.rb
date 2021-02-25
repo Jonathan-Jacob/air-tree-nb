@@ -22,6 +22,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = !@booking.status
+    @booking.save
+    @treehouse = @booking.treehouse
+    authorize @booking
+    redirect_to mytreehouse_path(@treehouse)
+  end
+
   private
 
   def booking_params
