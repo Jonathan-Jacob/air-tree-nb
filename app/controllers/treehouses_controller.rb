@@ -51,6 +51,6 @@ class TreehousesController < ApplicationController
   end
 
   def query_params
-    params.require(:query).permit(:name)
+    params.require(:query).permit(:name) if params[:query].present?
   end
 end
