@@ -8,7 +8,7 @@
     <div class="col-12 col-md-6">
       <div class="row">
         <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
-          <div class="col-6 col-sm-4 col-md-6">
+          <div class="col-6 col-sm-4 col-md-6" id="card_column">
             <%= link_to treehouse_path(treehouse) do %>
               <div class="card-treehouse">
                 <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
@@ -24,8 +24,8 @@
       </div>
     </div>
     <div class="col-12 col-md-6">
-      <div class="sticky-top" id="treehouse_map">
-        <div id="map"
+      <div class="sticky-top">
+        <div id="map" style="height: min(70vh, 494.3125px)"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
