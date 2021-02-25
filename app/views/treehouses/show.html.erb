@@ -1,44 +1,29 @@
-<div class="container">
-  <%= link_to treehouses_path do %>
-    <button class="btn btn-danger text-white">Back to all treehouses</button>
-  <% end %>
-  <div class="row justify-content-center">
-  <h1><%= @treehouse.name %></h1>
-  </div>
-  <div class="row justify-content-center">
-    <div class="card-treehouse" style="width: min(calc(100vw - 30px), max(calc(461px + 10vw), 28vw))">
-      <%= cl_image_tag @treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+
+
+<div class="show-container mt-3 ml-15 mr-15">
+
+  <div class="show-card">
+     <%= cl_image_tag @treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill, class:"show-card-img" %>
+    <div class="show-card-infos">
+      <div>
+        <h1><%=@treehouse.name%></h1>
+        <p><%=@treehouse.description%></p>
+        <p>The price is only at <strong>$<%=@treehouse.price_per_day%></strong> per day!</p>
+        <p>You can cancel without problems until <strong> <%=@treehouse.cancel_days%></strong> days before your trip!</p>
+      </div>
+      <% if @treehouse.user.present? %>
+           <%= cl_image_tag @treehouse.user.photo.key, class: "show-card-user avatar-bordered" %>
+      <% else %>
+          <%= image_tag "https://blog.ratioform.de/wp-content/uploads/2017/04/der-weg-vom-baum-zum-papier.jpg", class: "show-card-user avatar-bordered" %>
+      <%end%>
     </div>
   </div>
-  <div class=" row justify-content-center">
-    <div class="info-field col-md-2">
-      <h6 class="text-center">Name:
-        <br>
-        <%=@treehouse.name%></h6>
-    </div>
-    <div class="info-field col-md-2">
-      <h6 class="text-center">Description:
-        <br>
-        <%=@treehouse.description%></h6>
-    </div>
-    <div class="info-field col-md-2">
-      <h6 class="text-center">Price Per day:
-        <br>
-        <%=@treehouse.price_per_day%> </h6>
-    </div>
-    <div class="info-field col-md-2">
-      <h6 class="text-center">Cancellation Period in days:
-        <br>
-        <%=@treehouse.cancel_days%></h6>
-    </div>
-  </div>
-  <div class="row justify-content-center mt-5">
+</div>
+
+<div class="show-container mt-3">
+  <div class="row justify-content-center mt-5 mb-5">
     <%= link_to new_treehouse_booking_path(@treehouse) do %>
     <button class="btn btn-danger text-white">Book treehouse</button>
     <% end %>
   </div>
 </div>
-
-
-
-
