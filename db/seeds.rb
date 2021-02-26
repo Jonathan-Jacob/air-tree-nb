@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 Treehouse.destroy_all
+Booking.destroy_all
+
 
 
 
