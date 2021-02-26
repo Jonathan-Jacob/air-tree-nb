@@ -1,0 +1,32 @@
+// .div-input-no-mb {
+//   @extend .simple-form.div-input;
+//   margin-bottom: 0;
+// }
+
+.form-inline-index {
+  @extend .form-inline;
+  .form-group {
+    display: flex;
+    margin-right: 87.69px;
+    margin-bottom: 0 !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+  }
+  .form-control {
+    flex: 1;
+  }
+  label {
+    margin-right: 4px;
+    margin-bottom: 0 !important;
+    height: 24px;
+    width: 60px;
+  }
+}
+
+// @media (min-width: 576px) {
+//   .form-inline-index {
+//     .form-group {
+//       flex-wrap: nowrap !important;
+//     }
+//   }
+// }

@@ -1,17 +1,27 @@
 <div class="container-xl">
   <h1 class="text-center my-2">Treehouses</h1>
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between flex-wrap">
     <div class="text-center"><%= link_to new_treehouse_path do %>
-      <button class="btn btn-danger text-white">Offer treehouse</button>
+      <button class="btn btn-success text-white my-1">Offer treehouse</button>
       <% end %>
     </div>
-    <%= simple_form_for :query, url: treehouses_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :name, input_html: {value: ""} %>   
-      <%= f.submit "Search", class: "btn btn-danger" %>
+    <%= simple_form_for :query, url: treehouses_path, method: "GET", html: { class: "form-inline-index my-1", style: "position: relative" } do |f| %>
+      <%= f.input :name %>   
+      <%= f.submit "Search", class: "btn btn-success", style: "position: absolute; bottom: 0; right: 0" %>
     <% end %>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 order-md-2" style="z-index: 1">
+      <div class="sticky-top" id="treehouse_map">
+        <div style="width: 100%; height: clamp(0vh, 70vh, 494.3125px)">
+          <div id="map"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 order-md-1">
       <div class="row">
         <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
           <div class="col-6 col-sm-4 col-md-6" id="card_column">
@@ -27,16 +37,6 @@
             <% end %>
           </div>
         <% end %>
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="sticky-top">
-        <div style="width: 100%; height: clamp(0vh, 70vh, 494.3125px)">
-          <div id="map"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-        </div>
       </div>
     </div>
   </div>

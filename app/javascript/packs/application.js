@@ -35,6 +35,8 @@ import { initCalculateBookingPrice } from "../components/booking_price";
 
 import { initAnchor } from "../components/anchor";
 
+import { toggleNavbarFooter } from "../components/toggle_navbar_footer";
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -49,6 +51,8 @@ document.addEventListener('turbolinks:load', () => {
   initAnchor();
 
   initAutocomplete();
+
+  toggleNavbarFooter();
 });
 
 

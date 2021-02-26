@@ -8,7 +8,8 @@ class TreehousesController < ApplicationController
       {
         lat: treehouse.latitude,
         lng: treehouse.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { treehouse: treehouse })
+        infoWindow: render_to_string(partial: "info_window", locals: { treehouse: treehouse }),
+        image_url: helpers.asset_url('tree-icon.png')
       }
     end
   end
