@@ -6,11 +6,18 @@ class Booking < ApplicationRecord
   validates :guests, presence: true
 
   validate :end_date_after_start_date?
+  validate :start_date_cannot_be_in_the_past
   validate :guests_match_capacity?
 
   def end_date_after_start_date?
     if end_date < start_date
       errors.add :end_date, "must be after start date"
+    end
+  end
+
+  def start_date_cannot_be_in_the_past
+    if start_date.present? && start_date < Date.today
+      errors.add :start_date, "can't be in the past"
     end
   end
 

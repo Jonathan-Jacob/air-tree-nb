@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_treehouse, only: [:new, :create]
 
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).order(start_date: :asc)
   end
 
   def new
