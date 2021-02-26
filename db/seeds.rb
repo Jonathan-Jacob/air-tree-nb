@@ -14,7 +14,7 @@ u1.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/
 u1.save
 u2 = User.new(email: "rubeus@hagrid.com", password: 123456)
 u2.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614352236/yokwsyxeb2ylrgifjnc6.jpg'), filename: 'user2.jpg', content_type: 'image/jpg')
-us.save
+u2.save
 u3 = User.new(email: "woodyhouse@allen.com", password: 123456)
 u3.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614352266/e2sgnmmxi0hfmzdq8p5e.jpg'), filename: 'user3.jpg', content_type: 'image/jpg')
 u3.save
@@ -30,46 +30,46 @@ prices = [25, 57, 81, 42, 65, 81, 90, 27, 109, 45, 60, 50, 99, 199]
 cancel_days = [14, 7, 3, 14, 7, 4, 9, 7, 7, 7, 10, 12, 5, 14]
 capacity = [4, 3, 6, 8, 6, 4, 5, 2, 100, 12, 7, 12, 14, 20]
 
-t1 = Treehouse.new(user: User.[0], name: names[0], description: descriptions[0], price_per_day: prices[0], cancel_days: cancel_days[0], address: "Berlin", capacity: capacity[0])
+t1 = Treehouse.new(user: u1, name: names[0], description: descriptions[0], price_per_day: prices[0], cancel_days: cancel_days[0], address: "Berlin", capacity: capacity[0])
 t1.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614091940/sfautdhubttwb66zpt6v.jpg'), filename: 'treehouse1.jpg', content_type: 'image/jpg')
 t1.save
-t2 = Treehouse.new(user: User.[1], name: names[1], description: descriptions[1], price_per_day: prices[1], cancel_days: cancel_days[1], address: "Paris", capacity: capacity[1])
+t2 = Treehouse.new(user: u2, name: names[1], description: descriptions[1], price_per_day: prices[1], cancel_days: cancel_days[1], address: "Paris", capacity: capacity[1])
 t2.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614091949/kbxjpoydyglxsifdqhje.jpg'), filename: 'treehouse2.jpg', content_type: 'image/jpg')
 t2.save
-t3 = Treehouse.new(user: User.[0], name: names[2], description: descriptions[2], price_per_day: prices[2], cancel_days: cancel_days[2], address: "Rome", capacity: capacity[2])
+t3 = Treehouse.new(user: u1, name: names[2], description: descriptions[2], price_per_day: prices[2], cancel_days: cancel_days[2], address: "Rome", capacity: capacity[2])
 t3.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614091983/hlo4aanjzygonnlvbets.jpg'), filename: 'treehouse3.jpg', content_type: 'image/jpg')
 t3.save
-t4 = Treehouse.new(user: User.[2], name: names[3], description: descriptions[3], price_per_day: prices[3], cancel_days: cancel_days[3], address: "Amsterdam", capacity: capacity[3])
+t4 = Treehouse.new(user: u3, name: names[3], description: descriptions[3], price_per_day: prices[3], cancel_days: cancel_days[3], address: "Amsterdam", capacity: capacity[3])
 t4.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614091997/z9zlkbkam5ic1is4ns9t.jpg'), filename: 'treehouse4.jpg', content_type: 'image/jpg')
 t4.save
-t5 = Treehouse.new(user: User.[0], name: names[4], description: descriptions[4], price_per_day: prices[4], cancel_days: cancel_days[4], address: "Weaverville", capacity: capacity[4])
+t5 = Treehouse.new(user: u1, name: names[4], description: descriptions[4], price_per_day: prices[4], cancel_days: cancel_days[4], address: "Weaverville", capacity: capacity[4])
 t5.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614347928/mnf1fylqaqadqig3ue5x.jpg'), filename: 'Moonstone.jpg', content_type: 'image/jpg')
 t5.save
-t6 = Treehouse.new(user: User.[0], name: names[5], description: descriptions[5], price_per_day: prices[5], cancel_days: cancel_days[5], address: "Belize", capacity: capacity[5])
+t6 = Treehouse.new(user: u1, name: names[5], description: descriptions[5], price_per_day: prices[5], cancel_days: cancel_days[5], address: "Belize", capacity: capacity[5])
 t6.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348022/dbwbg3dbklygoajtlkfm.jpg'), filename: 'Hamanasi.jpg', content_type: 'image/jpg')
 t6.save
-t7 = Treehouse.new(user: User.[0], name: names[6], description: descriptions[6], price_per_day: prices[6], cancel_days: cancel_days[6], address: "Issaquah", capacity: capacity[6])
+t7 = Treehouse.new(user: u1, name: names[6], description: descriptions[6], price_per_day: prices[6], cancel_days: cancel_days[6], address: "Issaquah", capacity: capacity[6])
 t7.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348414/zvroisurenlvosydxcg5.jpg'), filename: 'TreehousePoint.jpg', content_type: 'image/jpg')
 t7.save
-t8 = Treehouse.new(user: User.[2], name: names[7], description: descriptions[7], price_per_day: prices[7], cancel_days: cancel_days[7], address: "Puntarenas", capacity: capacity[7])
+t8 = Treehouse.new(user: u3, name: names[7], description: descriptions[7], price_per_day: prices[7], cancel_days: cancel_days[7], address: "Puntarenas", capacity: capacity[7])
 t8.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348239/yujtah4qjm8k3mii5710.jpg'), filename: 'Floating.jpg', content_type: 'image/jpg')
 t8.save
-t9 = Treehouse.new(user: User.[2], name: names[8], description: descriptions[8], price_per_day: prices[8], cancel_days: cancel_days[8], address: "Quepos", capacity: capacity[8])
+t9 = Treehouse.new(user: u3, name: names[8], description: descriptions[8], price_per_day: prices[8], cancel_days: cancel_days[8], address: "Quepos", capacity: capacity[8])
 t9.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348188/vphsynp86oewh5zklbc6.jpg'), filename: '727.jpg', content_type: 'image/jpg')
 t9.save
-t10 = Treehouse.new(user: User.[2], name: names[9], description: descriptions[9], price_per_day: prices[9], cancel_days: cancel_days[9], address: "Eureka Springs", capacity: capacity[9])
+t10 = Treehouse.new(user: u3, name: names[9], description: descriptions[9], price_per_day: prices[9], cancel_days: cancel_days[9], address: "Eureka Springs", capacity: capacity[9])
 t10.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348351/ypvli7swjmn42dtf4vzz.jpg'), filename: 'Treehousecottages.jpg', content_type: 'image/jpg')
 t10.save
-t11 = Treehouse.new(user: User.[1], name: names[10], description: descriptions[10], price_per_day: prices[10], cancel_days: cancel_days[10], address: "Rincon", capacity: capacity[10])
+t11 = Treehouse.new(user: u2, name: names[10], description: descriptions[10], price_per_day: prices[10], cancel_days: cancel_days[10], address: "Rincon", capacity: capacity[10])
 t11.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348441/zhur25n5qsrw2ymnypro.jpg'), filename: 'Tropical.jpg', content_type: 'image/jpg')
 t11.save
-t12 = Treehouse.new(user: User.[1], name: names[11], description: descriptions[11], price_per_day: prices[11], cancel_days: cancel_days[11], address: "Litchfield Hills", capacity: capacity[11])
+t12 = Treehouse.new(user: u2, name: names[11], description: descriptions[11], price_per_day: prices[11], cancel_days: cancel_days[11], address: "Litchfield Hills", capacity: capacity[11])
 t12.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348479/u2jh6rwunxm1tfshqcu0.jpg'), filename: 'Winivan.jpg', content_type: 'image/jpg')
 t12.save
-t13 = Treehouse.new(user: User.[1], name: names[12], description: descriptions[12], price_per_day: prices[12], cancel_days: cancel_days[12], address: "Blue Ridge", capacity: capacity[12])
+t13 = Treehouse.new(user: u2, name: names[12], description: descriptions[12], price_per_day: prices[12], cancel_days: cancel_days[12], address: "Blue Ridge", capacity: capacity[12])
 t13.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348208/xedzfrywqroeuduanhqw.jpg'), filename: 'Canopy.jpg', content_type: 'image/jpg')
 t13.save
-t14 = Treehouse.new(user: User.[0], name: names[13], description: descriptions[13], price_per_day: prices[13], cancel_days: cancel_days[13], address: "Guancaste", capacity: capacity[13])
+t14 = Treehouse.new(user: u1, name: names[13], description: descriptions[13], price_per_day: prices[13], cancel_days: cancel_days[13], address: "Guancaste", capacity: capacity[13])
 t14.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348266/amidlyzgsra9pzn4cqwj.jpg'), filename: 'Luxury.jpg', content_type: 'image/jpg')
 t14.save
 
