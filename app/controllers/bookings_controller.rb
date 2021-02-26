@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     @treehouse = @booking.treehouse
     @booking.save
     authorize @booking
-    redirect_to mytreehouse_path(@treehouse)
+    redirect_to dashboard_path(anchor: "bookings-host")
   end
 
   def show

@@ -15,7 +15,7 @@ class Treehouse < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_treehouse,
-                  against: :name,
+                  against: [ :name, :address ],
                   using: {
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }
