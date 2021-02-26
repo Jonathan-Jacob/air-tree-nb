@@ -10,11 +10,12 @@
         <p><%=@treehouse.description%></p>
         <p>The price is only at <strong>$<%=@treehouse.price_per_day%></strong> per day!</p>
         <p>You can cancel without problems until <strong> <%=@treehouse.cancel_days%></strong> days before your trip!</p>
+        <p> Maximal number of guests is <strong> <%=@treehouse.capacity%></strong>!</p>
       </div>
       <% if @treehouse.user.photo.present? %>
-           <%= cl_image_tag @treehouse.user.photo.key, class: "show-card-user avatar-bordered" %>
+           <%= cl_image_tag @treehouse.user.photo.key, class: "show-card-user avatar-large-bordered" %>
       <% else %>
-          <%= image_tag "https://blog.ratioform.de/wp-content/uploads/2017/04/der-weg-vom-baum-zum-papier.jpg", class: "show-card-user avatar-bordered" %>
+          <%= image_tag "Placeholder.jpg", class: "show-card-user avatar-large-bordered" %>
       <%end%>
     </div>
   </div>
