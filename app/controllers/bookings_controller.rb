@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     authorize @booking
     redirect_to mytreehouse_path(@treehouse)
   end
-  
+
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
