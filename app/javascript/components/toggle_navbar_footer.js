@@ -1,7 +1,9 @@
 const toggleNavbarFooter = () => {
   if (window.location.pathname === "/") {
+    console.log("AAA")
     document.getElementById("footer").hidden = true;
   } else {
+    console.log("BBB")
     document.getElementById("footer").hidden = false;
   }
   if (window.location.pathname === "/") {
