@@ -1,10 +1,10 @@
 .card-treehouse{
   @extend .card;
   margin: 16px 0;
-  border-radius: 2px;
+  border-radius: 5px;
   border: none;
   img {
-    border-radius: 2px;
+    border-radius: 5px;
     box-shadow: 0 0 15px rgba(255,255,255,0.5);
   }
   .card-treehouse-overlay:hover {
@@ -36,7 +36,7 @@
 .info-field {
   margin: 3px 3px;
   padding: 7px 10px;
-  border-radius: 4px ;
+  border-radius: 5px ;
   background-color: #6A6C54;
   box-shadow: 0 0 15px rgba(255,255,255,0.5);
   border: black;
@@ -51,7 +51,7 @@
 .show-card {
   overflow: hidden;
   background: white;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 0 0 15px rgba(255,255,255,0.5);
 }
 
