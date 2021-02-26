@@ -14,7 +14,7 @@ const initCalculateBookingPrice = () => {
 
       let sumPrice = document.getElementById('total-price');
 
-      sumPrice.innerText = totalPrice;
+      sumPrice.innerText = `${totalPrice}€`;
     }
   )};
 };
