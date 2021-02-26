@@ -1,6 +1,5 @@
 <div class="container-confirmation" style= "padding: 20px;">
-  <h1 class="text-align-center">booking-request nr.: <%= @booking.id %></h1>
-  <p>from <%= @booking.start_date.strftime("%d. %b %Y") %> - <%= @booking.end_date.strftime("%d.%b %Y") %></p>
+  <h1 class="text-align-center mb-3">Booking request placed</h1>
   <div class="card-confirmation">
     <div class="uppercard">
        <%= cl_image_tag @booking.treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
@@ -20,22 +19,10 @@
         </div>
         <div class="travelprice">
           <h4><%= (@booking.end_date - @booking.start_date).to_i * @booking.treehouse.price_per_day %> Euros</h4>
-          <h4><%= (@booking.end_date - @booking.start_date).to_i %> Nights </h4>
+          <h4><%= pluralize((@booking.end_date - @booking.start_date).to_i, 'Night') %></h4>
         </div>
       </div>
-      <div class="traveldescriptionstatus">
-        <div class="traveldescription">
-          <div class="miniature-img">
-            <%= cl_image_tag @booking.treehouse.photo.key, crop: :fill %>
-          </div>
-          <div class="treehouse-name">
-            <h3><%= @booking.treehouse.name %></h3>
-          </div>
-        </div>
-        <div class="booking-status">
-          <h3>Pending</h3>
-        </div>
-      </div>
+      <h3><%= @booking.treehouse.name %></h3>
     </div>
   </div>
 </div>
