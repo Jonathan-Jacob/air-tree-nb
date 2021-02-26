@@ -8,7 +8,7 @@ class Treehouse < ApplicationRecord
   validates :price_per_day, presence: true, numericality: { only_integer: true }
   validates :cancel_days, presence: true, numericality: { only_integer: true }
   validates :photo, presence: { message: 'An image must be attached' }
-  validates :address, presence: { message: 'Address can\'t be blank' }
+  validates :address, presence: true
   validates :latitude, presence: { message: 'Invalid address' }
   geocoded_by :address
   validates :capacity, presence: true

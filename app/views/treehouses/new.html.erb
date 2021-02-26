@@ -6,19 +6,15 @@
     <%= f.input :price_per_day, label: "Price per day in €", as: :integer %>
     <%= f.input :cancel_days, label: "Cancellation period in days", as: :integer %>
     <%= f.input :address, label: "Address" %>
+    <% if @treehouse.errors.messages[:address].any? %>
+      <p class="mt-0 text-danger" style="font-size: small">Address <%= @treehouse.errors.messages[:address].first %></p>
+      <% end %>
     <%= f.input :capacity, label: "Capacity", as: :integer %>
-    <% if @treehouse.errors.messages[:address].any? && @treehouse.errors.messages[:latitude].any? %>
-      <p class="mt-0 text-danger" style="font-size: small"><%= @treehouse.errors.messages[:address].first %> and <%= @treehouse.errors.messages[:latitude].first %></p>
-    <% elsif @treehouse.errors.messages[:address].any? %>
-      <p class="mt-0 text-danger" style="font-size: small"><%= @treehouse.errors.messages[:address].first %></p>
-    <% elsif @treehouse.errors.messages[:latitude].any? %>
-      <p class="mt-0 text-danger" style="font-size: small"><%= @treehouse.errors.messages[:latitude].first %></p>
-    <% end %>
+
+
     <label class="btn btn-success my-0 ml-0 mr-2">Upload image<input type="file" style="display: none;" name="treehouse[photo]" id="treehouse_photo"></label>
     <%= f.submit 'Add treehouse', class: "btn btn-success" %>
+
   <% end %>
-  <% if @treehouse.errors.messages[:photo].any? %>
-    <p class="mt-1 text-danger" style="font-size: small"><%= @treehouse.errors.messages[:photo].first %></p>
-  <% end %>
-  <% params %>
+
 </div>
