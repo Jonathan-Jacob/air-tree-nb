@@ -14,10 +14,10 @@
   <% end %>
   <br>
   </div>
-  <% if booking.status == "Pending" %>
+  <% if booking.status != "Deny" && booking.status != "Confirm" %>
     <%= simple_form_for [@treehouse, booking], remote: true do |f| %>
     <%= f.input :status, collection: ['Confirm', 'Deny'] %>
-    <%= f.submit 'Confirmation' %>
+    <%= f.submit 'Confirm or Deny', class: "btn btn-secondary rounded" %>
     <% end %>
   <% end %>
   <% end %>
