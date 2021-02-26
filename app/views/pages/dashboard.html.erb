@@ -28,12 +28,10 @@
   <% end %> 
   <% display_host = false %>
   <% @treehouses.each do |treehouse| %>
-    <% treehouse.bookings.each do |booking| %>
-      <% if booking.user.id == current_user.id %>
-        <% display_host = true %>
-      <% end %>
+    <% if treehouse.bookings.count > 0 %>
+      <% display_host = true %>
     <% end %>
-  <% end %> 
+  <% end %>
   <% if display_host %>
     <h2 class="text-center my-2" id="bookings-host">Bookings on my treehouses</h2>
     <div class="row">
