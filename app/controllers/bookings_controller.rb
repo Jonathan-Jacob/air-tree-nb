@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_treehouse, only: [:new, :create]
 
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).order(start_date: :asc)
   end
 
   def new
@@ -24,13 +24,13 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.status = !@booking.status
-    @booking.save
+    @booking.status = params[:booking][:status]
     @treehouse = @booking.treehouse
+    @booking.save
     authorize @booking
-    redirect_to mytreehouse_path(@treehouse)
+    redirect_to dashboard_path(anchor: "bookings-host")
   end
-  
+
   def show
     @booking = Booking.find(params[:id])
     authorize @booking

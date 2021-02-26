@@ -18,10 +18,10 @@
 
 .card-treehouse-overlay {
   @extend .card-img-overlay;
-  display: flex;
+  // display: flex;
   color: white;
-  align-items: flex-center;
-  text-align: center;
+  // align-items: flex-center;
+  // text-align: center;
   margin: 0;
   padding: 0;
   transition: all 0.5s ease;
@@ -87,8 +87,8 @@
 .show-card-infos .show-card-user {
   position: absolute;
   right: 16px;
-  top: -20px;
-  width: 40px;
+  top: -42px;
+  // width: 40px;
 }
 
 

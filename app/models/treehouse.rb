@@ -8,14 +8,14 @@ class Treehouse < ApplicationRecord
   validates :price_per_day, presence: true, numericality: { only_integer: true }
   validates :cancel_days, presence: true, numericality: { only_integer: true }
   validates :photo, presence: { message: 'An image must be attached' }
-  validates :address, presence: { message: 'Address can\'t be blank' }
+  validates :address, presence: true
   validates :latitude, presence: { message: 'Invalid address' }
   geocoded_by :address
   validates :capacity, presence: true
 
   include PgSearch::Model
   pg_search_scope :search_treehouse,
-                  against: :name,
+                  against: [ :name, :address ],
                   using: {
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }

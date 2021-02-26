@@ -8,6 +8,7 @@
 require "open-uri"
 Treehouse.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 u1 = User.new(email: "ziggy47@stardust.com", password: 123456)
 u1.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614352034/ughhuogmn8vi5g3cbzn9.png'), filename: 'user1.jpg', content_type: 'image/jpg')
@@ -21,8 +22,6 @@ u3.save
 u4 = User.new(email: "forest@gumpp.com", password: 123456)
 u4.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614352326/g6mv9g3tbmj5bqzsikni.jpg'), filename: 'user4.jpg', content_type: 'image/jpg')
 u4.save
-
-
 
 names = ['Squirrel castle', 'Owl hole', 'Oak mansion', 'Wood manor', 'Moonstone Tree Castle', 'Hamanasi Adventure', 'Treehouse Point', 'Floating House', '727 Airplane', 'Eureka Cottages', 'Tropical Treehouse', 'Winivan Farm', 'Canopy Blue', 'Woodpeckers Palace' ]
 descriptions = ['Cozy little treehouse', 'Nice forest apartment', 'Luxurious tree penthouse', 'Lavish forest experience', 'This property goes so far above the idea of a treehouse, it has to be called a treecastle! Supported by a cluster of five trees, it looks like it belongs in a fairy tale – both inside and out. The turret right off the bedroom is an especially cozy spot to read, write or let your imagination wander as you stare happily at the richly-patterned poplar ceiling.', 'After winding through orchid-lined paths in Hamanasi’s beachfront forest, you’ll discover 16 private treehouses just steps from the Caribbean Sea. Each spacious abode boasts handcrafted Belizean hardwood furniture – much of it made onsite by Hamanasi’s carpenters – draped beds, and local art all enveloped in cool tropical tones.', 'This world-class bed and breakfast features half a dozen treehouses, each equipped with electricity and heat – and its own distinct personality. Coolers are provided so you can keep drinks and snacks handy, and a homemade continental breakfast is served in the Lodge every morning.', 'This award-winning masterpiece of architecture offers the unique experience of floating above the Costa Rican jungle canopy, totally surrounded by nature. The scenery is incredible wherever you look, from sunrise over the mountains to sunset over the Pacific. You may find yourself eye-to-eye with a monkey on its own treetop or sharing a bird’s eye view of the area with the eagles that glide alongside and circle the expansive verandas.', 'One of the most unique places you’ll ever spend the night, this refurbished 727 is perched on a custom-built platform 50 feet above the ground with expansive views of both the ocean and the jungle.', 'Tucked away in a 33-acre tall pine forest, these beautifully-crafted treehouses stand 22 to 26 feet off the ground. Designed and hand-built by owners Terry and Patsy Miller, they offer rustic luxury, with heat, air-conditioning and full kitchenettes.', 'Located minutes away from some of the island’s most exotic beaches, these two bamboo “hooches” are the perfect places to take in the spectacular sunset. In fact, the Sunset Hooch offers you two levels of complete privacy to do just that. Everything is solar-powered and there’s even a flush toilet and an outlet to charge your phone.', 'Suspended 35 feet above the forest floor, this two-story luxury treehouse has pretty much every amenity you could think of, from a fireplace on each floor to a steam shower and Jacuzzi, to a full bar. And that’s not even including the treetop views of the New England forest.', 'Perched on four private acres overlooking the Chattahoochee-Oconee National Forest, this one bedroom, one bathroom treehouse is filled with so many unique architectural and designer details. One you’re likely to appreciate most is the hanging bed/sofa in the upstairs loft, where you can settle in and take in the magnificent views.', 'A quiet refuge from the touristy areas, this two bedroom, two bath mountainside treehouse is located in a 250-acre protected, forested Nature Eco-reserve just a short drive from some of the country’s most unspoiled and uncrowded beaches.']
@@ -72,14 +71,3 @@ t13.save
 t14 = Treehouse.new(user: u1, name: names[13], description: descriptions[13], price_per_day: prices[13], cancel_days: cancel_days[13], address: "Guancaste", capacity: capacity[13])
 t14.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614348266/amidlyzgsra9pzn4cqwj.jpg'), filename: 'Luxury.jpg', content_type: 'image/jpg')
 t14.save
-
-# Moonstone = "https://res.cloudinary.com/dxipt5061/image/upload/v1614347928/mnf1fylqaqadqig3ue5x.jpg",
-# Hamanasi =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348022/dbwbg3dbklygoajtlkfm.jpg",
-# 727=  "https://res.cloudinary.com/dxipt5061/image/upload/v1614348188/vphsynp86oewh5zklbc6.jpg",
-# Canopy =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348208/xedzfrywqroeuduanhqw.jpg",
-# Floating =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348239/yujtah4qjm8k3mii5710.jpg",
-# Luxury =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348266/amidlyzgsra9pzn4cqwj.jpg",
-# Treehousecottages =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348351/ypvli7swjmn42dtf4vzz.jpg",
-# TreehousePoint =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348414/zvroisurenlvosydxcg5.jpg",
-# Tropical =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348441/zhur25n5qsrw2ymnypro.jpg",
-# Winivan =   "https://res.cloudinary.com/dxipt5061/image/upload/v1614348479/u2jh6rwunxm1tfshqcu0.jpg",

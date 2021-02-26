@@ -1,0 +1,94 @@
+<div class="container-xl">
+  <% display_tree = false %>
+  <% @treehouses.each do |treehouse| %>
+    <% if treehouse.user.id == current_user.id %>
+      <% display_tree = true %>
+    <% end %>
+  <% end %> 
+  <% if display_tree %>
+    <h2 class="text-center my-2" id="treehouses-host">My treehouses</h2>
+    <div class="row">
+      <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
+        <div class="col-6 col-sm-4 col-md-3">
+          <div class="card-booking">
+            <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+            <div class="card-content">
+              <%= link_to treehouse_path(treehouse) do %>
+                <h5 class="mb-0"><%= treehouse.name %></h5>
+              <% end %>
+              <p><%= treehouse.address.match(/\A\S* ?\S*/)[0].to_s %></p>
+              <p class="mb-0">Max. <%= treehouse.capacity %> guests</p>
+              <p class="mb-0"><%= treehouse.price_per_day %>€ per night</p>
+              <p class="mb-0">Cancel for free up to <%= treehouse.price_per_day %> days in advantage</p>
+            </div>    
+          </div>      
+        </div>
+      <% end %>
+    </div>
+  <% end %> 
+  <% display_host = false %>
+  <% @treehouses.each do |treehouse| %>
+    <% treehouse.bookings.each do |booking| %>
+      <% if booking.user.id == current_user.id %>
+        <% display_host = true %>
+      <% end %>
+    <% end %>
+  <% end %> 
+  <% if display_host %>
+    <h2 class="text-center my-2" id="bookings-host">Bookings on my treehouses</h2>
+    <div class="row">
+    <% @treehouses.each do |treehouse| %>
+      <% treehouse.bookings.each do |booking| %>
+        <div class="col-6 col-sm-4 col-md-3">
+          <div class="card-booking">        
+            <%= cl_image_tag booking.treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>            
+            <div class="card-content">
+              <p><%= booking.start_date.strftime("%d/%b/%Y") %> – <%= booking.end_date.strftime("%d/%b/%Y") %></p>          
+              <%= link_to treehouse_path(booking.treehouse) do %>
+                <h5 class="mb-0"><%= booking.treehouse.name %></h5>
+              <% end %>
+              <h6><%= booking.treehouse.address.match(/\A\S* ?\S*/)[0].to_s %></h6>
+              <p><%= (booking.end_date - booking.start_date).to_i * booking.treehouse.price_per_day %>€ for <%= pluralize((booking.end_date - booking.start_date).to_i, 'night') %> </p>
+              <% if booking.status != "Deny" && booking.status != "Confirm" %>
+                <%= simple_form_for [treehouse, booking], remote: true do |f| %>
+                <%= f.input :status, collection: ['Confirm', 'Deny'] %>
+                <%= f.submit 'Confirm or Deny', class: "btn btn-secondary rounded" %>
+                <% end %>
+              <% elsif %>
+              <% booking.status == "Confirm" %>
+                <h5 class="text-success">Confirmed</h5>
+              <% else %>
+                <h5 class="text-danger">Denied</h5>
+              <% end %>            
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+  <h2 class="text-center my-2">My bookings as a guest</h2>
+  <div class="row">
+  <% @bookings_guest.each do |booking| %>
+    <div class="col-6 col-sm-4 col-md-3">
+      <div class="card-booking">        
+        <%= cl_image_tag booking.treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>            
+        <div class="card-content">
+          <p><%= booking.start_date.strftime("%d/%b/%Y") %> – <%= booking.end_date.strftime("%d/%b/%Y") %></p>          
+          <%= link_to treehouse_path(booking.treehouse) do %>
+            <h5 class="mb-0"><%= booking.treehouse.name %></h5>
+          <% end %>
+          <h6><%= booking.treehouse.address.match(/\A\S* ?\S*/)[0].to_s %></h6>
+          <p><%= (booking.end_date - booking.start_date).to_i * booking.treehouse.price_per_day %>€ for <%= pluralize((booking.end_date - booking.start_date).to_i, 'night') %> </p>
+          <% if booking.status == "Confirm" %>
+            <h5 class="text-success">Confirmed</h5>
+          <% elsif booking.status == "Deny" %>
+            <h5 class="text-danger">Denied</h5>
+          <% else %>
+            <h5 class="text-alert">Pending</h5>
+          <% end %>  
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

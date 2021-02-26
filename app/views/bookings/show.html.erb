@@ -3,10 +3,8 @@
   <p>from <%= @booking.start_date.strftime("%d. %b %Y") %> - <%= @booking.end_date.strftime("%d.%b %Y") %></p>
   <div class="card-confirmation">
     <div class="uppercard">
-      <div class="leimage">
-       <%= cl_image_tag @booking.treehouse.photo.key, crop: :fill %>
-      </div>
-   </div>
+       <%= cl_image_tag @booking.treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+    </div>
     <div class="lowercard">
       <div class="dateprice">
         <div class="traveldate">

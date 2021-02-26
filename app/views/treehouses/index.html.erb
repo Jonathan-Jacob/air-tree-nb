@@ -30,7 +30,7 @@
                 <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
                 <div class="card-treehouse-overlay">
                   <div class="text-center w-100 h-100 d-flex justify-content-center align-items-end" >
-                    <h4 style="text-shadow: black 0px 0px 8px" ><%= treehouse.name %></h4>        
+                    <p style="text-shadow: black 0px 0px 8px" ><%= treehouse.name %>, <%= treehouse.address.match(/\A\S* ?\S*/)[0].to_s.last == "," ? treehouse.address.match(/\A\S* ?\S*/)[0].to_s.chop : treehouse.address.match(/\A\S* ?\S*/)[0].to_s %>, <%= treehouse.price_per_day %>€</p>
                   </div>
                 </div>
               </div>        

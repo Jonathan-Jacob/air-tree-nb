@@ -13,3 +13,30 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.list-inline .tabs-underlined {
+}
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  a {
+    color: black;
+  }
+}
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 0px;
+  margin: 0px 0px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #555555;
+}
