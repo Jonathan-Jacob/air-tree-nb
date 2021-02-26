@@ -18,7 +18,7 @@ names = ['Squirrel castle', 'Owl hole', 'Oak mansion', 'Wood manor']
 descriptions = ['Cozy little treehouse', 'Nice forest apartment', 'Luxurious tree penthouse', 'Lavish forest experience']
 prices = [25, 57, 81, 42]
 cancel_days = [14, 7, 3, 14]
-capacity = [12, 5, 10, 8]
+capacity = [2, 5, 3, 4]
 
 t1 = Treehouse.new(user: User.first, name: names[0], description: descriptions[0], price_per_day: prices[0], cancel_days: cancel_days[0], address: "Berlin", capacity: capacity[0])
 t1.photo.attach(io: file = URI.open('https://res.cloudinary.com/dxipt5061/image/upload/v1614091940/sfautdhubttwb66zpt6v.jpg'), filename: 'treehouse1.jpg', content_type: 'image/jpg')
