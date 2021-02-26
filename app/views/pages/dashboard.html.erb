@@ -1,23 +1,31 @@
 <div class="container-xl">
-  <h2 class="text-center my-2" id="treehouses-host">My treehouses</h2>
-  <div class="row">
-    <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
-      <div class="col-6 col-sm-4 col-md-3">
-        <div class="card-booking">
-          <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
-          <div class="card-content">
-            <%= link_to treehouse_path(treehouse) do %>
-              <h5 class="mb-0"><%= treehouse.name %></h5>
-            <% end %>
-            <p><%= treehouse.address.match(/\A\S* ?\S*/)[0].to_s %></p>
-            <p class="mb-0">Max. <%= treehouse.capacity %> guests</p>
-            <p class="mb-0"><%= treehouse.price_per_day %>€ per night</p>
-            <p class="mb-0">Cancel for free up to <%= treehouse.price_per_day %> days in advantage</p>
-          </div>    
-        </div>      
-      </div>
+  <% display_tree = false %>
+  <% @treehouses.each do |treehouse| %>
+    <% if treehouse.user.id == current_user.id %>
+      <% display_tree = true %>
     <% end %>
-  </div>
+  <% end %> 
+  <% if display_tree %>
+    <h2 class="text-center my-2" id="treehouses-host">My treehouses</h2>
+    <div class="row">
+      <% @treehouses.sort_by { |i| i.name.upcase }.each do |treehouse| %>
+        <div class="col-6 col-sm-4 col-md-3">
+          <div class="card-booking">
+            <%= cl_image_tag treehouse.photo.key, aspect_ratio: 1.77777777778, crop: :fill %>
+            <div class="card-content">
+              <%= link_to treehouse_path(treehouse) do %>
+                <h5 class="mb-0"><%= treehouse.name %></h5>
+              <% end %>
+              <p><%= treehouse.address.match(/\A\S* ?\S*/)[0].to_s %></p>
+              <p class="mb-0">Max. <%= treehouse.capacity %> guests</p>
+              <p class="mb-0"><%= treehouse.price_per_day %>€ per night</p>
+              <p class="mb-0">Cancel for free up to <%= treehouse.price_per_day %> days in advantage</p>
+            </div>    
+          </div>      
+        </div>
+      <% end %>
+    </div>
+  <% end %> 
   <% display_host = false %>
   <% @treehouses.each do |treehouse| %>
     <% treehouse.bookings.each do |booking| %>
